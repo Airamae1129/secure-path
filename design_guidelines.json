@@ -1,0 +1,228 @@
+{
+  "project_name": "SecurePath Cyber Ltd. Marketing & Advisory Website",
+  "app_type": "marketing_site",
+  "design_direction": "Minimal, modern, calm confidence — minimalist editorial, generous white space, large confident type, thin 1px hairline dividers, premium advisory firm feel. NOT dark hacker/matrix cyber look.",
+  "file_format": "js",
+  "theme": "Light & Dark Dual Harmony (Light editorial canvas with Deep Navy focal sections)",
+  "brand_tokens": {
+    "primary": {
+      "deep_navy": "#0B2545",
+      "teal": "#0D9488",
+      "cyber_blue": "#1565C0"
+    },
+    "secondary": {
+      "mid_navy": "#1E3A5F",
+      "light_teal": "#14B8A6",
+      "sky_blue": "#E3F2FD",
+      "slate_gray": "#475569",
+      "steel_bg": "#F0F4F8"
+    },
+    "tints": {
+      "navy_20": "#D0D8E4",
+      "navy_40": "#A1B1C8",
+      "teal_20": "#CCEFEC",
+      "teal_40": "#99DFD9",
+      "blue_20": "#BBDEFB"
+    }
+  },
+  "typography": {
+    "headings": {
+      "family": "'Outfit', sans-serif",
+      "weights": ["300 (Light)", "500 (Medium)", "600 (Semi-Bold)"],
+      "letter_spacing": "tracking-tight (-0.025em to -0.04em)",
+      "h1": "text-4xl sm:text-5xl lg:text-6xl font-light leading-[1.1]",
+      "h2": "text-2xl sm:text-3xl lg:text-4xl font-medium leading-[1.2]",
+      "h3": "text-xl sm:text-2xl font-medium leading-[1.3]",
+      "h4": "text-lg sm:text-xl font-semibold leading-[1.4]"
+    },
+    "body": {
+      "family": "'Inter', sans-serif",
+      "size": "text-base (16px) to text-lg (18px)",
+      "line_height": "leading-relaxed (1.6)",
+      "color": "#475569"
+    },
+    "google_fonts_import": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap"
+  },
+  "signature_motif": {
+    "name": "THE PATH",
+    "description": "One continuous thin teal (#0D9488) SVG path that draws itself progressively using Framer Motion (useScroll + useSpring) as the user scrolls down the page. The path travels up-and-right between sections and terminates in a refined SVG arrowhead at the final CTA section.",
+    "implementation": "SVG overlay canvas with fixed or relative scroll-synced path coordinates, strokeDasharray/strokeDashoffset or pathLength animation, 1.5px stroke width, stroke-linecap round."
+  },
+  "icons": {
+    "library": "lucide-react",
+    "style": "Outline only, strokeWidth=1.5",
+    "examples": ["ShieldCheck", "Lock", "FileCheck2", "Compass", "Layers", "Scale", "ArrowUpRight", "CheckCircle2", "ChevronRight"]
+  },
+  "layout_and_spacing": {
+    "grid_system": "Bento Grid protocol (Mode A for Marketing). 12-column grid layout with 1px hairline borders (`border-[#D0D8E4]`/`border-slate-200`) and generous internal padding (`p-8` or `p-12`).",
+    "section_padding": "py-20 lg:py-32 px-4 sm:px-8 max-w-7xl mx-auto",
+    "card_radius": "rounded-xl (12px) to rounded-2xl (16px)",
+    "dividers": "1px hairline borders (`border-[#D0D8E4]`/`border-slate-200/80`). Avoid thick dividers or drop shadows on static elements.",
+    "shadows": "Flat surfaces by default. Subtle diffuse ambient elevation only on hover (`hover:shadow-xl hover:shadow-navy-900/5 hover:-translate-y-1 transition-all duration-300`)."
+  },
+  "sections_breakdown": [
+    {
+      "section_id": "navbar",
+      "name": "Header & Sticky Navigation",
+      "description": "Sticky top bar with smooth state transition from transparent on top hero to solid white/glassmorphism (backdrop-blur-md bg-white/90 border-b border-slate-200/80) on scroll.",
+      "key_elements": [
+        "Brand Logo: Minimalist typography with teal path accent symbol",
+        "Navigation Links: Home, Our Approach, Services, How We Work, Sectors, Why Us",
+        "Primary CTA Button: 'Book a Consultation' (triggers front-end booking modal)",
+        "Mobile Navigation: Animated full-screen drawer menu with clean line-art links"
+      ]
+    },
+    {
+      "section_id": "hero",
+      "name": "Hero Section",
+      "description": "High-impact editorial hero with word-by-word mask reveal title, stroke-drawing shield graphic, interactive dotted grid parallax background, and animated scroll cue.",
+      "key_elements": [
+        "Headline word mask reveal: 'Guiding organisations on the path to sustainable security.'",
+        "Interactive SVG Hero Graphic: Outline shield that stroke-draws smoothly, followed by a teal arrow springing up-right through the center shield mask.",
+        "Underline motif: Signature teal path drawing line under key phrase.",
+        "Subtitle: Independent cybersecurity governance, risk management & ISO 27001 advisory for ambitious enterprises.",
+        "CTA buttons: 'Explore Core Services' and 'Schedule Advisory Session'",
+        "Scroll indicator: Animated subtle pulse cue leading down to trust strip"
+      ]
+    },
+    {
+      "section_id": "trust_strip",
+      "name": "Trust & Credibility Bar",
+      "description": "Refined credential ticker featuring key statistics and accreditation badges.",
+      "key_elements": [
+        "Key stats: '16+ Years Expertise', 'ISO 27001 Certified Specialists', '100% Independent & Objective'",
+        "Partner/Accreditation badges (e.g., PECB, ISO/IEC 27001, CREST partner, CISSP certified team) with greyscale-to-color transition on hover"
+      ]
+    },
+    {
+      "section_id": "approach",
+      "name": "Our Approach (4 Pillars)",
+      "description": "4 numbered strategic pillars connected directly by 'THE PATH' scroll line.",
+      "key_elements": [
+        "Pillar 01: Context-First Risk Modeling",
+        "Pillar 02: Business-Aligned Governance",
+        "Pillar 03: Pragmatic ISO 27001 Implementation",
+        "Pillar 04: Continuous Assurance & Resilience",
+        "Visual connector: Animated teal path SVG winding horizontally/vertically through cards"
+      ]
+    },
+    {
+      "section_id": "services",
+      "name": "Core Services Bento Grid",
+      "description": "Asymmetric bento grid containing 1 dominant flagship card (ISO 27001 & Governance) and 4 supporting modular cards.",
+      "key_elements": [
+        "Flagship Bento Card (Col-span-8): ISO 27001 Information Security Management Systems (ISMS) End-to-End Certification Support",
+        "Modular Card 1 (Col-span-4): VISO & Executive Board Advisory",
+        "Modular Card 2 (Col-span-4): Regulatory Compliance (NIS2, DORA, GDPR, SOC2)",
+        "Modular Card 3 (Col-span-4): Cyber Risk & Threat Modeling",
+        "Modular Card 4 (Col-span-4): Cloud Security & Zero-Trust Architecture"
+      ]
+    },
+    {
+      "section_id": "how_we_work",
+      "name": "How We Work (5-Step Timeline)",
+      "description": "Sticky scroll horizontal/vertical step-by-step methodology progress bar.",
+      "key_elements": [
+        "Step 01: Discovery & Maturity Assessment",
+        "Step 02: Gap Analysis & Threat Profiling",
+        "Step 03: Strategic Roadmap & Governance Design",
+        "Step 04: Implementation & Control Integration",
+        "Step 05: Audit Preparation & Continuous Assurance",
+        "Interactive feature: Clicking any step highlights details with fluid transition"
+      ]
+    },
+    {
+      "section_id": "who_we_work_with",
+      "name": "Who We Work With (Interactive Accordion)",
+      "description": "Clean editorial accordion rows for targeted sector advisory.",
+      "key_elements": [
+        "Financial Services & Fintech",
+        "Healthcare & Life Sciences",
+        "Enterprise SaaS & High-Tech",
+        "Critical Infrastructure & Logistics",
+        "Public Sector & Higher Education"
+      ]
+    },
+    {
+      "section_id": "why_securepath",
+      "name": "Why SecurePath (Dark Navy Feature Grid)",
+      "description": "Deep Navy (#0B2545) contrast section with 2x2 grid, glowing teal icons, and blur-to-sharp scroll entrance animations.",
+      "key_elements": [
+        "Reason 1: Uncompromising Independence (Zero Vendor Lock-in)",
+        "Reason 2: Board-Level Communication (Plain English Risk Metrics)",
+        "Reason 3: Pragmatic Security over Paper Compliance",
+        "Reason 4: Proven Track Record across Complex Frameworks"
+      ]
+    },
+    {
+      "section_id": "final_cta",
+      "name": "Final CTA & Path Termination",
+      "description": "High-conversion closing section where 'THE PATH' line terminates with a precision SVG arrowhead.",
+      "key_elements": [
+        "Headline: 'Ready to elevate your security posture with clarity?'",
+        "Magnetic Button: Framer motion cursor magnetic attraction effect + subtle teal glow pulse",
+        "Path Termination: Animated teal SVG arrowhead snapping into focus beside CTA button"
+      ]
+    },
+    {
+      "section_id": "booking_modal",
+      "name": "Advisory Booking Modal",
+      "description": "Front-end only multi-step consultation scheduler with chip selection and success state animation.",
+      "key_elements": [
+        "Service Selection Chips: ISO 27001, Cyber Risk Audit, VISO Advisory, Regulatory Compliance",
+        "Form Fields: Full Name, Work Email, Company Name, Preferred Time",
+        "State Transition: On submission, form dissolves and displays an animated SVG success checkmark with instant confirmation text"
+      ]
+    },
+    {
+      "section_id": "footer",
+      "name": "Footer Section",
+      "description": "Deep Navy (#0B2545) footer with 1px hairlines, quick navigation, compliance statement, and copyright notice.",
+      "key_elements": [
+        "Company details: SecurePath Cyber Ltd. (UK & European Advisory)",
+        "Navigation Columns: Services, Governance, Company, Legal",
+        "Sub-routes: /services, /about, /privacy",
+        "Copyright notice & WCAG AA compliance statement"
+      ]
+    }
+  ],
+  "motion_and_micro_interactions": {
+    "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+    "durations": {
+      "fast": "300ms",
+      "medium": "500ms",
+      "slow": "800ms"
+    },
+    "viewport_trigger": "reveal once at 20% in view (amount: 0.2, once: true)",
+    "effects": [
+      "Word-by-word mask reveal on hero title",
+      "StrokeDashoffset path drawing on SVG scroll path and shield outline",
+      "Magnetic CTA button cursor response (using spring physics)",
+      "Blur-to-sharp scroll reveals (filter: blur(8px) -> blur(0px) + opacity 0 -> 1)",
+      "Card hover subtle lift (-translate-y-1 + soft ambient shadow)"
+    ]
+  },
+  "accessibility_wcag_aa": {
+    "contrast_ratios": "Minimum 4.5:1 for body text (#475569 on white/steel), 7:1 for headings (#0B2545), 3:1 for teal accents (#0D9488)",
+    "reduced_motion": "Respect 'prefers-reduced-motion'. When active, replace path drawing and magnetic effects with immediate opacity fades",
+    "focus_states": "Explicit ring-2 ring-[#0D9488] ring-offset-2 on all interactive controls",
+    "data_testids": "MANDATORY on all interactive elements (e.g. data-testid='nav-book-consultation-btn', data-testid='booking-modal-submit-btn', data-testid='bento-service-card-iso27001')"
+  },
+  "image_urls": [],
+  "instructions_to_main_agent": [
+    "1. Ensure Google Fonts link for 'Outfit' and 'Inter' is added in public/index.html or imported in index.css.",
+    "2. Configure tailwind.config.js to extend colors with exact hex codes: primary deep_navy (#0B2545), teal (#0D9488), cyber_blue (#1565C0), steel_bg (#F0F4F8), etc.",
+    "3. Implement the signature 'THE PATH' SVG component using Framer Motion's useScroll and useSpring hooks to animate strokeDashoffset / pathLength along the page as the user scrolls.",
+    "4. All code files MUST be in React JavaScript (.js / .jsx). Do NOT use TypeScript (.tsx).",
+    "5. Every single button, link, accordion header, input, and modal close control MUST include a descriptive data-testid attribute in kebab-case.",
+    "6. Front-end form submission in the Booking Modal MUST prevent default submission and render a clean, animated success state card with a checkmark.",
+    "7. Build sub-routes using React Router (/services, /about, /privacy) while maintaining full access to the interactive home page flow."
+  ],
+  "UNIVERSAL GUIDELINES FOR MAIN AGENT": [
+    "Avoid standard AI slop aesthetics (no generic blue tech gradients or hacker matrix looks). Stick strictly to the minimal, modern, calm confidence editorial aesthetic.",
+    "Ensure generous spacing: use py-20 lg:py-32 for sections and p-8 or p-12 inside bento grid cards.",
+    "Do NOT use complete transparent background on sticky header or modals; always use backdrop-blur-md with semi-opaque backgrounds (e.g. bg-white/90 or bg-[#0B2545]/95).",
+    "Ensure contrast meets APCA / WCAG AA standards across all text and buttons.",
+    "Always test interactive states for keyboard navigation and screen readers."
+  ]
+}

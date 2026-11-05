@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 217 73% 16%;
+        --card: 0 0% 100%;
+        --card-foreground: 217 73% 16%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 217 73% 16%;
+        --primary: 213 100% 21%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 214 42% 95%;
+        --secondary-foreground: 217 73% 16%;
+        --muted: 214 42% 95%;
+        --muted-foreground: 215 16% 36%;
+        --accent: 175 84% 32%;
+        --accent-foreground: 0 0% 100%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 219 31% 86%;
+        --input: 219 31% 86%;
+        --ring: 175 84% 32%;
+        --radius: 0.75rem;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    html {
+        scroll-behavior: smooth;
+    }
+    body {
+        @apply bg-white font-body text-slateink antialiased;
+        font-size: 16px;
+        line-height: 1.6;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        @apply font-heading text-navy;
+        letter-spacing: -0.02em;
+    }
+    ::selection {
+        background: #ccefec;
+        color: #0b2545;
+    }
+    :focus-visible {
+        outline: 2px solid #0d9488;
+        outline-offset: 3px;
+        border-radius: 2px;
+    }
+}
+
+@layer base {
+    [data-debug-wrapper="true"] {
+        display: contents !important;
+    }
+
+    [data-debug-wrapper="true"] > * {
+        margin-left: inherit;
+        margin-right: inherit;
+        margin-top: inherit;
+        margin-bottom: inherit;
+        padding-left: inherit;
+        padding-right: inherit;
+        padding-top: inherit;
+        padding-bottom: inherit;
+        column-gap: inherit;
+        row-gap: inherit;
+        gap: inherit;
+        border-left-width: inherit;
+        border-right-width: inherit;
+        border-top-width: inherit;
+        border-bottom-width: inherit;
+        border-left-style: inherit;
+        border-right-style: inherit;
+        border-top-style: inherit;
+        border-bottom-style: inherit;
+        border-left-color: inherit;
+        border-right-color: inherit;
+        border-top-color: inherit;
+        border-bottom-color: inherit;
+    }
+}
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+}
+
+/* Lenis smooth scroll */
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+/* Hero dotted grid */
+.dot-grid {
+    background-image: radial-gradient(circle, rgba(11, 37, 69, 0.16) 1px, transparent 1px);
+    background-size: 26px 26px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 60% 40%, black 30%, transparent 75%);
+    mask-image: radial-gradient(ellipse 70% 60% at 60% 40%, black 30%, transparent 75%);
+}
+
+/* Fine noise texture for dark sections */
+.noise-dark {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.04;
+}
+
+/* Slow editorial marquee */
+.marquee-track {
+    animation: marquee 38s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    .marquee-track,
+    .animate-glow-pulse,
+    .animate-scroll-dot {
+        animation: none !important;
+    }
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
