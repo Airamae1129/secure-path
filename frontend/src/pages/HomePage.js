@@ -7,6 +7,7 @@ import { Services } from "../components/Services";
 import { Process } from "../components/Process";
 import { StatementBanner } from "../components/StatementBanner";
 import { Audience } from "../components/Audience";
+import { Founder } from "../components/Founder";
 import { WhyUs } from "../components/WhyUs";
 import { FinalCTA } from "../components/FinalCTA";
 import { PathLine } from "../components/PathLine";
@@ -33,6 +34,7 @@ export default function HomePage({ onBook }) {
         <Process />
         <StatementBanner />
         <Audience onBook={onBook} />
+        <Founder dark />
         <WhyUs />
         <FinalCTA onBook={onBook} />
       </div>

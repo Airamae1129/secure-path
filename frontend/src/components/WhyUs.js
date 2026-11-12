@@ -29,7 +29,7 @@ export function WhyUs() {
             <Eyebrow light>{WHY_US.eyebrow}</Eyebrow>
           </Reveal>
           <Reveal delay={0.08}>
-            <h2 className="mt-5 font-heading text-3xl font-light tracking-tight text-white sm:text-4xl lg:text-5xl">
+            <h2 className="mt-5 font-heading text-3xl font-medium tracking-tight text-white sm:text-4xl lg:text-5xl">
               {WHY_US.title}
             </h2>
           </Reveal>

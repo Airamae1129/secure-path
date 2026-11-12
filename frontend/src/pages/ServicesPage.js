@@ -31,7 +31,7 @@ export default function ServicesPage({ onBook }) {
               <Eyebrow>{SERVICES.eyebrow}</Eyebrow>
             </Reveal>
             <Reveal delay={0.08}>
-              <h1 className="mt-6 max-w-3xl font-heading text-4xl font-light tracking-tight text-navy sm:text-5xl lg:text-6xl">
+              <h1 className="mt-6 max-w-3xl font-heading text-4xl font-medium tracking-tight text-navy sm:text-5xl lg:text-6xl">
                 {SERVICES.title}
               </h1>
             </Reveal>
@@ -115,7 +115,7 @@ export default function ServicesPage({ onBook }) {
       <section className="bg-steel py-20 lg:py-28">
         <div className="mx-auto max-w-3xl px-5 text-center sm:px-8">
           <Reveal>
-            <h2 className="font-heading text-3xl font-light tracking-tight text-navy sm:text-4xl">
+            <h2 className="font-heading text-3xl font-medium tracking-tight text-navy sm:text-4xl">
               Not sure which service fits?
             </h2>
           </Reveal>

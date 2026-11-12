@@ -47,8 +47,8 @@ export function Navbar({ onBook }) {
       <header
         className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-brand ${
           scrolled
-            ? "border-b border-navy-20/80 bg-white/90 backdrop-blur-md"
-            : "border-b border-transparent bg-transparent"
+            ? "border-b border-white/10 bg-navy/90 shadow-lg shadow-navy/40 backdrop-blur-md"
+            : "border-b border-white/5 bg-navy"
         }`}
         data-testid="site-navbar"
       >
@@ -57,7 +57,7 @@ export function Navbar({ onBook }) {
           aria-label="Main navigation"
         >
           <Link to="/" aria-label="SecurePath home" data-testid="nav-home-logo">
-            <Logo />
+            <Logo light />
           </Link>
 
           <div className="hidden items-center gap-9 lg:flex">
@@ -68,12 +68,12 @@ export function Navbar({ onBook }) {
                 data-testid={`nav-link-${link.label.toLowerCase().replace(/[^a-z]+/g, "-")}`}
                 className={({ isActive }) =>
                   `group relative text-[15px] font-medium transition-colors duration-300 ${
-                    isActive ? "text-navy" : "text-slateink hover:text-navy"
+                    isActive ? "text-white" : "text-navy-20 hover:text-white"
                   }`
                 }
               >
                 {link.label}
-                <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-teal transition-all duration-500 ease-brand group-hover:w-full" />
+                <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-teal-light transition-all duration-500 ease-brand group-hover:w-full" />
               </NavLink>
             ))}
           </div>
@@ -83,7 +83,7 @@ export function Navbar({ onBook }) {
               type="button"
               onClick={onBook}
               data-testid="nav-book-consultation-btn"
-              className="group hidden items-center gap-2 rounded-full bg-cyber px-5 py-2.5 text-[15px] font-medium text-white transition-all duration-400 ease-brand hover:bg-navy hover:shadow-lg hover:shadow-navy/20 sm:inline-flex"
+              className="group hidden items-center gap-2 rounded-full bg-cyber px-5 py-2.5 text-[15px] font-medium text-white transition-all duration-400 ease-brand hover:bg-teal hover:shadow-lg hover:shadow-teal/25 sm:inline-flex"
             >
               Book a Consultation
               <ArrowUpRight
@@ -97,7 +97,7 @@ export function Navbar({ onBook }) {
               aria-expanded={open}
               aria-label={open ? "Close menu" : "Open menu"}
               data-testid="nav-mobile-menu-btn"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full text-navy transition-colors hover:bg-steel lg:hidden"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full text-white transition-colors hover:bg-white/10 lg:hidden"
             >
               {open ? <X className="h-5 w-5" strokeWidth={1.5} /> : <Menu className="h-5 w-5" strokeWidth={1.5} />}
             </button>

@@ -55,7 +55,7 @@ export function FinalCTA({ onBook }) {
       <PathArrowhead className="mx-auto h-16 w-24 opacity-90 lg:h-20 lg:w-28" />
       <div className="relative mx-auto max-w-4xl px-5 text-center sm:px-8">
         <Reveal>
-          <h2 className="text-balance pt-8 font-heading text-4xl font-light tracking-tight text-navy sm:text-5xl lg:pt-10 lg:text-6xl">
+          <h2 className="text-balance pt-8 font-heading text-4xl font-medium tracking-tight text-navy sm:text-5xl lg:pt-10 lg:text-6xl">
             {FINAL_CTA.title}
           </h2>
         </Reveal>

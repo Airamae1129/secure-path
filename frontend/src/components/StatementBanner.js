@@ -43,7 +43,7 @@ export function StatementBanner() {
           </span>
         </Reveal>
         <Reveal delay={0.1}>
-          <p className="text-balance mt-7 font-heading text-3xl font-light leading-snug tracking-tight text-white sm:text-4xl lg:text-5xl">
+          <p className="text-balance mt-7 font-heading text-3xl font-medium leading-snug tracking-tight text-white sm:text-4xl lg:text-5xl">
             {STATEMENT.quote}
           </p>
         </Reveal>

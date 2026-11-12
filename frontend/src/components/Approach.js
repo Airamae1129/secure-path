@@ -23,7 +23,7 @@ export function Approach() {
           <Eyebrow>{APPROACH.eyebrow}</Eyebrow>
         </Reveal>
         <Reveal delay={0.08}>
-          <p className="mt-6 max-w-3xl font-heading text-2xl font-light leading-snug text-navy sm:text-3xl lg:text-4xl">
+          <p className="mt-6 max-w-3xl font-heading text-2xl font-normal leading-snug text-navy sm:text-3xl lg:text-4xl">
             {APPROACH.intro}
           </p>
         </Reveal>

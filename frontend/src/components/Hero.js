@@ -3,6 +3,8 @@ import { ArrowRight } from "lucide-react";
 import { HERO, IMAGES } from "../content";
 import { EASE, useMouseParallax, scrollToTarget } from "./shared";
 
+// Shield redrawn to match the official SecurePath logo: peaked flat top,
+// angled shoulders, curved sides to a bottom point, and the bold teal arrow.
 function ShieldGraphic() {
   const reduceMotion = useReducedMotion();
   const draw = (delay, duration) =>
@@ -14,25 +16,28 @@ function ShieldGraphic() {
           transition: { duration, delay, ease: EASE },
         };
   return (
-    <svg viewBox="0 0 320 360" fill="none" className="h-auto w-full max-w-[420px]" aria-hidden="true">
+    <svg viewBox="0 0 200 240" fill="none" className="h-auto w-full max-w-[420px]" aria-hidden="true">
+      {/* shield outline — official logo shape */}
       <motion.path
-        d="M160 18c34 23 71 34 118 39 0 103-34.7 183-118 236C76.7 240 42 160 42 57 89 52 126 41 160 18Z"
+        d="M100 8 L184 36 C 184 126, 160 188, 100 230 C 40 188, 16 126, 16 36 Z"
         stroke="#0B2545"
-        strokeWidth="2"
+        strokeWidth="3"
         strokeLinejoin="round"
         {...draw(0.3, 1.6)}
       />
+      {/* inner hairline echo */}
       <motion.path
-        d="M160 44c27 18 56 27 93 31 0 81-27.3 144-93 186C94.3 219 67 156 67 75c37-4 66-13 93-31Z"
+        d="M100 26 L168 49 C 168 122, 148 174, 100 210 C 52 174, 32 122, 32 49 Z"
         stroke="#A1B1C8"
-        strokeWidth="1"
+        strokeWidth="1.2"
         strokeLinejoin="round"
         {...draw(0.7, 1.4)}
       />
+      {/* bold teal arrow shaft */}
       <motion.path
-        d="M88 268 C 128 232, 176 176, 236 96"
+        d="M60 172 L 130 80"
         stroke="#0D9488"
-        strokeWidth="3.5"
+        strokeWidth="11"
         strokeLinecap="round"
         initial={reduceMotion ? {} : { pathLength: 0 }}
         animate={{ pathLength: 1 }}
@@ -42,24 +47,18 @@ function ShieldGraphic() {
             : { type: "spring", stiffness: 42, damping: 14, delay: 1.9 }
         }
       />
-      <motion.path
-        d="M200 90 L 240 84 L 234 124"
-        stroke="#0D9488"
-        strokeWidth="3.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        initial={reduceMotion ? {} : { pathLength: 0, opacity: 0 }}
-        animate={{ pathLength: 1, opacity: 1 }}
-        transition={reduceMotion ? {} : { duration: 0.45, delay: 2.55, ease: EASE }}
-      />
-      <motion.circle
-        cx="236"
-        cy="96"
-        r="5"
+      {/* filled arrowhead, like the official mark */}
+      <motion.polygon
+        points="144,60 110,66 142,96"
         fill="#0D9488"
+        style={{ transformOrigin: "128px 78px" }}
         initial={reduceMotion ? {} : { scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        transition={reduceMotion ? {} : { duration: 0.4, delay: 2.5, ease: EASE }}
+        transition={
+          reduceMotion
+            ? {}
+            : { type: "spring", stiffness: 200, damping: 16, delay: 2.45 }
+        }
       />
     </svg>
   );
@@ -92,7 +91,7 @@ export function Hero({ onBook }) {
             {HERO.eyebrow}
           </motion.p>
 
-          <h1 className="max-w-2xl font-heading text-4xl font-light leading-[1.08] tracking-tight text-navy sm:text-5xl lg:text-6xl">
+          <h1 className="max-w-2xl font-heading text-4xl font-medium leading-[1.08] tracking-tight text-navy sm:text-5xl lg:text-6xl">
             {HERO.titleWords.map((word, i) => {
               const isPath = word === HERO.highlightWord;
               return (
@@ -108,7 +107,7 @@ export function Hero({ onBook }) {
                     transition={{ duration: 0.7, delay: 0.3 + i * 0.06, ease: EASE }}
                   >
                     {isPath ? (
-                      <span className="relative inline-block font-medium text-teal">
+                      <span className="relative inline-block font-semibold text-teal">
                         {word}
                         <motion.svg
                           viewBox="0 0 120 12"

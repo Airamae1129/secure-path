@@ -11,7 +11,7 @@ export default function PrivacyPage() {
             <Eyebrow>{PRIVACY.eyebrow}</Eyebrow>
           </Reveal>
           <Reveal delay={0.08}>
-            <h1 className="mt-6 font-heading text-4xl font-light tracking-tight text-navy sm:text-5xl">
+            <h1 className="mt-6 font-heading text-4xl font-medium tracking-tight text-navy sm:text-5xl">
               {PRIVACY.title}
             </h1>
           </Reveal>
@@ -26,7 +26,7 @@ export default function PrivacyPage() {
       <section className="bg-white py-16 lg:py-24">
         <div className="mx-auto max-w-3xl px-5 sm:px-8">
           <Reveal>
-            <p className="font-heading text-xl font-light leading-relaxed text-navy">
+            <p className="font-heading text-xl font-medium leading-relaxed text-navy">
               {PRIVACY.intro}
             </p>
           </Reveal>

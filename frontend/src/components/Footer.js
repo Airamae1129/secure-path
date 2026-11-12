@@ -13,7 +13,7 @@ export function Footer() {
             <Link to="/" aria-label="SecurePath home" data-testid="footer-home-logo">
               <Logo light full />
             </Link>
-            <p className="mt-5 max-w-xs font-heading text-lg font-light leading-snug text-navy-20">
+            <p className="mt-5 max-w-xs font-heading text-lg font-normal leading-snug text-navy-20">
               {BRAND.tagline}
             </p>
             <p className="mt-3 text-sm text-navy-40">{FOOTER.note}</p>
