@@ -1,5 +1,5 @@
-import { Scale, MessageSquare, Infinity as InfinityIcon, ArrowUpRight } from "lucide-react";
-import { ABOUT, TRUST_ITEMS } from "../content";
+import { Scale, MessageSquare, Infinity as InfinityIcon, ArrowUpRight, BadgeCheck } from "lucide-react";
+import { ABOUT, TRUST_ITEMS, FOUNDER, IMAGES } from "../content";
 import { Eyebrow, Reveal } from "../components/shared";
 
 const ICONS = {
@@ -7,6 +7,74 @@ const ICONS = {
   "message-square": MessageSquare,
   infinity: InfinityIcon,
 };
+
+function FounderSection() {
+  return (
+    <section className="relative overflow-hidden bg-steel py-16 lg:py-24" data-testid="founder-section">
+      <div className="dot-grid pointer-events-none absolute inset-0 opacity-50" />
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
+        <Reveal>
+          <Eyebrow>{FOUNDER.eyebrow}</Eyebrow>
+        </Reveal>
+        <Reveal delay={0.08}>
+          <h2 className="mt-5 font-heading text-3xl font-medium tracking-tight text-navy sm:text-4xl">
+            {FOUNDER.title}
+          </h2>
+        </Reveal>
+
+        <div className="mt-12 grid grid-cols-1 gap-10 lg:grid-cols-[380px_1fr] lg:gap-16">
+          {/* photo + name card */}
+          <Reveal delay={0.1}>
+            <div className="relative">
+              <div className="overflow-hidden rounded-3xl border border-navy-20/70 bg-white p-6 shadow-xl shadow-navy/5">
+                <div className="relative mx-auto aspect-square max-w-[300px]">
+                  <div
+                    aria-hidden="true"
+                    className="absolute -inset-2 rounded-full border-2 border-dashed border-teal-40"
+                  />
+                  <img
+                    src={FOUNDER.photo}
+                    alt={FOUNDER.photoAlt}
+                    className="h-full w-full rounded-full object-cover"
+                    data-testid="founder-photo"
+                  />
+                </div>
+                <div className="mt-6 rounded-2xl bg-navy px-6 py-5" data-testid="founder-name-card">
+                  <p className="font-heading text-2xl font-medium text-white">{FOUNDER.name}</p>
+                  <p className="mt-1 text-sm text-teal-light">{FOUNDER.role}</p>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* bio + credentials */}
+          <div>
+            {FOUNDER.bio.map((para, i) => (
+              <Reveal key={i} delay={0.1 + i * 0.08}>
+                <p className={`leading-relaxed text-slateink ${i === 0 ? "font-heading text-lg font-light text-navy sm:text-xl" : "mt-5"}`}>
+                  {para}
+                </p>
+              </Reveal>
+            ))}
+            <Reveal delay={0.3}>
+              <div className="mt-8 flex flex-wrap gap-2.5" data-testid="founder-credentials">
+                {FOUNDER.credentials.map((cred) => (
+                  <span
+                    key={cred}
+                    className="inline-flex items-center gap-1.5 rounded-full bg-navy px-4 py-2 text-[13px] font-medium text-white transition-colors duration-300 hover:bg-teal"
+                  >
+                    <BadgeCheck className="h-3.5 w-3.5 text-teal-light" strokeWidth={2} />
+                    {cred}
+                  </span>
+                ))}
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default function AboutPage({ onBook }) {
   return (
@@ -50,7 +118,29 @@ export default function AboutPage({ onBook }) {
             </div>
           </div>
 
-          <div className="mt-20 grid grid-cols-1 gap-5 sm:grid-cols-3 lg:gap-6">
+          {/* image collage */}
+          <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-3" data-testid="about-collage">
+            {IMAGES.aboutCollage.map((image, i) => (
+              <Reveal key={image.src} delay={i * 0.08}>
+                <div className="group overflow-hidden rounded-2xl border border-navy-20/70">
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    loading="lazy"
+                    className="aspect-[4/3] w-full object-cover transition-transform duration-700 ease-brand group-hover:scale-105"
+                  />
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <FounderSection />
+
+      <section className="bg-white py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-3 lg:gap-6">
             {ABOUT.values.map((value, i) => {
               const Icon = ICONS[value.icon];
               return (
@@ -82,7 +172,15 @@ export default function AboutPage({ onBook }) {
         </div>
       </section>
 
-      <section className="bg-navy py-20 lg:py-28">
+      <section className="relative overflow-hidden bg-navy py-20 lg:py-28">
+        <img
+          src={IMAGES.dark}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-cover opacity-[0.12]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-navy/80 to-navy/70" aria-hidden="true" />
         <div className="relative mx-auto max-w-3xl px-5 text-center sm:px-8">
           <Reveal>
             <h2 className="font-heading text-3xl font-light tracking-tight text-white sm:text-4xl">

@@ -1,3 +1,26 @@
+const img = (id, w = 1600) =>
+  `https://images.unsplash.com/${id}?crop=entropy&cs=srgb&fm=jpg&ixlib=rb-4.1.0&q=80&w=${w}&auto=format`;
+
+export const IMAGES = {
+  heroCard: img("photo-1556761175-4b46a572b786", 800),
+  banner: img("photo-1644088379091-d574269d422f", 2200),
+  dark: img("photo-1680992046626-418f7e910589", 2000),
+  aboutCollage: [
+    {
+      src: img("photo-1542744173-8e7e53415bb0", 900),
+      alt: "Executive cyber governance briefing in a modern conference room",
+    },
+    {
+      src: img("photo-1622675363311-3e1904dc1885", 900),
+      alt: "Leadership team reviewing a risk framework around a boardroom table",
+    },
+    {
+      src: img("photo-1517048676732-d65bc937f952", 900),
+      alt: "Hands-on advisory session with an executive team",
+    },
+  ],
+};
+
 export const BRAND = {
   name: "SecurePath",
   legalName: "SecurePath Cyber Ltd.",
@@ -11,14 +34,6 @@ export const NAV_LINKS = [
   { label: "Services", to: "/services" },
   { label: "About", to: "/about" },
   { label: "Privacy & Policy", to: "/privacy" },
-];
-
-export const HOME_SECTION_LINKS = [
-  { label: "Our Approach", to: "/#approach" },
-  { label: "Services", to: "/#services" },
-  { label: "How We Work", to: "/#process" },
-  { label: "Who We Work With", to: "/#audience" },
-  { label: "Why Us", to: "/#why-us" },
 ];
 
 export const HERO = {
@@ -88,6 +103,8 @@ export const SERVICES = {
       line: "Support in achieving ISO 27001 certification and establishing an effective ISMS.",
       icon: "badge-check",
       large: true,
+      image: img("photo-1751448555253-f39c06e29d82", 1200),
+      imageAlt: "Security and compliance management dashboard interface",
       detail:
         "From gap analysis to certification audit, we guide you through the full ISO 27001 journey — scoping your ISMS, building the risk treatment plan, writing policies people actually follow, and preparing your team for the audit with confidence.",
       bullets: [
@@ -103,6 +120,8 @@ export const SERVICES = {
       line: "Identify risks and build a clear roadmap for strengthening security across your organisation.",
       icon: "search-check",
       large: false,
+      image: img("photo-1758073519996-6d3c63b4922c", 1200),
+      imageAlt: "Abstract blue data waves representing network telemetry",
       detail:
         "A clear, business-first view of where you stand. We identify the risks that genuinely matter to your organisation and turn them into a prioritised, achievable roadmap — not a hundred-page report that sits on a shelf.",
       bullets: [
@@ -118,6 +137,8 @@ export const SERVICES = {
       line: "Independent security reviews to evaluate control effectiveness and improve resilience.",
       icon: "file-search",
       large: false,
+      image: img("photo-1680992046626-418f7e910589", 1200),
+      imageAlt: "High-security server infrastructure in deep navy tones",
       detail:
         "Independent, objective reviews of your security controls — what is working, what is not, and what to do about it. Our assurance work gives boards, customers and auditors the confidence they need.",
       bullets: [
@@ -133,6 +154,8 @@ export const SERVICES = {
       line: "Frameworks aligned with both regulatory requirements and business operations.",
       icon: "scroll-text",
       large: false,
+      image: img("photo-1542744173-8e7e53415bb0", 1200),
+      imageAlt: "Governance briefing in a modern conference room",
       detail:
         "Security frameworks and policies written for how your business actually runs — aligned to regulatory requirements, but practical enough that teams follow them without friction.",
       bullets: [
@@ -148,6 +171,8 @@ export const SERVICES = {
       line: "Strategic cybersecurity leadership without the full-time cost.",
       icon: "crown",
       large: false,
+      image: img("photo-1622675363311-3e1904dc1885", 1200),
+      imageAlt: "Leadership team reviewing security strategy in a boardroom",
       detail:
         "Senior security leadership on a flexible basis. We set the strategy, chair the risk conversations, report to your board, and keep your programme moving — without the cost of a full-time CISO.",
       bullets: [
@@ -192,6 +217,11 @@ export const PROCESS = {
   ],
 };
 
+export const STATEMENT = {
+  quote: "Cybersecurity done right isn't about ticking boxes.",
+  sub: "It's about understanding your business risks — and building programmes that genuinely protect them.",
+};
+
 export const AUDIENCE = {
   eyebrow: "WHO WE WORK WITH",
   title: "Organisations that need practical and sustainable cybersecurity",
@@ -202,26 +232,36 @@ export const AUDIENCE = {
       id: "tech-saas",
       title: "Technology & SaaS companies",
       line: "Organisations that need to strengthen cybersecurity to meet customer expectations, security questionnaires, and ISO 27001 certification requirements.",
+      image: img("photo-1497366754035-f200968a6e72", 1000),
+      imageAlt: "Modern glass office architecture",
     },
     {
       id: "smes",
       title: "Growing SMEs",
       line: "Companies expanding and requiring structured cybersecurity governance, risk management, and security policies.",
+      image: img("photo-1531973576160-7125cd663d86", 1000),
+      imageAlt: "Growing team collaborating in an open office",
     },
     {
       id: "professional-services",
       title: "Professional Services Firms",
       line: "Organisations managing sensitive client data that need to demonstrate strong security practices and assurance.",
+      image: img("photo-1517048676732-d65bc937f952", 1000),
+      imageAlt: "Advisory session with a professional services team",
     },
     {
       id: "iso-orgs",
       title: "Organisations implementing ISO 27001",
       line: "Organisations seeking expert guidance to implement an effective Information Security Management System (ISMS).",
+      image: img("photo-1751448555253-f39c06e29d82", 1000),
+      imageAlt: "Compliance management dashboard for ISO 27001",
     },
     {
       id: "leadership",
       title: "Organisations needing cybersecurity leadership",
       line: "Companies requiring strategic direction, governance, and risk oversight without hiring a full-time CISO.",
+      image: img("photo-1431540015161-0bf868a2d407", 1000),
+      imageAlt: "Executive board meeting in a corporate suite",
     },
   ],
 };
@@ -251,6 +291,33 @@ export const WHY_US = {
       line: "We build trusted relationships based on transparency and accountability, providing objective advice that prioritises the security and resilience of our clients.",
       icon: "handshake",
     },
+  ],
+};
+
+export const FOUNDER = {
+  eyebrow: "ABOUT THE FOUNDER",
+  title: "The person behind SecurePath Cyber Ltd.",
+  name: "Cleofe Velmonte",
+  role: "Founder & Principal Consultant",
+  photo: "/assets/founder.webp",
+  photoAlt: "Cleofe Velmonte, Founder & Principal Consultant of SecurePath Cyber Ltd.",
+  bio: [
+    "Cleofe Velmonte is a cybersecurity, risk and governance professional with over 16 years of experience helping organisations strengthen their security posture, manage technology risk, and build effective governance frameworks.",
+    "Throughout her career, Cleofe has worked across consulting, internal audit, risk management and cybersecurity advisory roles with organisations including Deloitte, PwC, and financial services with European and global footprints. She has led enterprise-wide risk initiatives, implemented GRC platforms, developed security and risk frameworks, and provided challenge and oversight on complex technology and business transformation programmes.",
+    "She is passionate about helping organisations translate cybersecurity requirements into practical, business-focused solutions that strengthen security, support compliance, and enable informed decision-making.",
+  ],
+  credentials: [
+    "Cybersecurity Governance",
+    "ISO 27001",
+    "IT Risk Management",
+    "GRC",
+    "Operational Resilience",
+    "Third-Party Risk",
+    "Data Governance",
+    "DORA",
+    "Internal Audit",
+    "Regulatory Compliance",
+    "NIS2",
   ],
 };
 

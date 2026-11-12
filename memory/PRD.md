@@ -19,6 +19,12 @@ Build a FRONT-END ONLY marketing website (no backend, no CMS, no real form submi
 ## Implemented (2026-07 / Nov 5 2026 session)
 - Sticky navbar: transparent over hero → white + hairline + blur on scroll; animated hamburger → full-screen navy menu with staggered links.
 - Hero: eyebrow, word-by-word mask reveal (60ms stagger), teal "path" with drawing underline, stroke-drawn shield with spring teal arrow, drifting dotted grid parallax, scroll cue.
+
+## Update (Nov 12 2026) — founder, imagery, official logo
+- Official logo integrated: shield-icon.png (navbar, favicon), logo-white-full.png (navy footer), derived from the client's transparent master via PIL (tight crop, navy→white variant).
+- About page: new Founder section — circular photo in dashed teal ring, navy name card (Cleofe Velmonte, Founder & Principal Consultant), full bio, 11 navy credential chips (ISO 27001, DORA, NIS2, GRC, etc.), plus a 3-image consultancy collage.
+- Richer imagery throughout (curated Unsplash, corporate/tech, no hacker clichés): floating photo card + "ISO 27001 Specialists" floating badge over the hero shield; full-bleed parallax statement banner ("Cybersecurity done right isn't about ticking boxes.") between Process and Audience; crossfading image panel beside the audience accordion (+ in-row images on mobile); moody navy server-room backdrop on Why Us; per-service images with floating icon tiles on the Services page; navy image backdrop on the About CTA.
+- Fixed hero H1 word spacing (trailing spaces collapse inside inline-block spans — now margin-based).
 - Trust strip: "16+ years experience · ISO 27001 specialists · Independent & objective" + PECB logo (greyscale → colour on hover); slow marquee on mobile.
 - Our Approach: 4 numbered pillars (Alignment, Sustainable, Practical, Resilience), teal connector line draws left→right with staggered reveals.
 - Core Services: bento grid (large ISO 27001 card + 4 small), hover lift + teal top border growth + icon rotate + sliding arrows.

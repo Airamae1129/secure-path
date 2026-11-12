@@ -5,6 +5,7 @@ import { TrustStrip } from "../components/TrustStrip";
 import { Approach } from "../components/Approach";
 import { Services } from "../components/Services";
 import { Process } from "../components/Process";
+import { StatementBanner } from "../components/StatementBanner";
 import { Audience } from "../components/Audience";
 import { WhyUs } from "../components/WhyUs";
 import { FinalCTA } from "../components/FinalCTA";
@@ -30,6 +31,7 @@ export default function HomePage({ onBook }) {
         <Approach />
         <Services />
         <Process />
+        <StatementBanner />
         <Audience onBook={onBook} />
         <WhyUs />
         <FinalCTA onBook={onBook} />

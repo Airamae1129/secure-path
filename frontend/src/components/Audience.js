@@ -7,6 +7,7 @@ import { EASE, Eyebrow, Reveal } from "./shared";
 export function Audience({ onBook }) {
   const [openId, setOpenId] = useState(AUDIENCE.groups[0].id);
   const reduceMotion = useReducedMotion();
+  const active = AUDIENCE.groups.find((g) => g.id === openId) || AUDIENCE.groups[0];
 
   return (
     <section id="audience" className="relative bg-white py-20 lg:py-32" data-testid="audience-section">
@@ -34,6 +35,39 @@ export function Audience({ onBook }) {
                 {AUDIENCE.cta}
                 <ArrowRight className="h-4 w-4 transition-transform duration-400 ease-brand group-hover:translate-x-1.5" strokeWidth={1.8} />
               </button>
+            </Reveal>
+
+            {/* crossfading image panel */}
+            <Reveal delay={0.24} className="mt-10 hidden lg:block">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-navy-20/80" data-testid="audience-image-panel">
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={active.id}
+                    src={active.image}
+                    alt={active.imageAlt}
+                    loading="lazy"
+                    initial={reduceMotion ? { opacity: 0 } : { opacity: 0, scale: 1.05 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.55, ease: EASE }}
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                </AnimatePresence>
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy/85 to-transparent px-5 pb-4 pt-14">
+                  <AnimatePresence mode="wait">
+                    <motion.p
+                      key={active.id}
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.4, ease: EASE }}
+                      className="text-sm font-medium text-white"
+                    >
+                      {active.title}
+                    </motion.p>
+                  </AnimatePresence>
+                </div>
+              </div>
             </Reveal>
           </div>
 
@@ -76,6 +110,12 @@ export function Audience({ onBook }) {
                           transition={{ duration: 0.5, ease: EASE }}
                           className="overflow-hidden"
                         >
+                          <img
+                            src={group.image}
+                            alt={group.imageAlt}
+                            loading="lazy"
+                            className="mb-5 h-40 w-full rounded-xl object-cover lg:hidden"
+                          />
                           <p className="max-w-xl pb-7 text-[15px] leading-relaxed text-slateink">
                             {group.line}
                           </p>

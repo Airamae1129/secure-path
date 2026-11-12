@@ -11,7 +11,7 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
             <Link to="/" aria-label="SecurePath home" data-testid="footer-home-logo">
-              <Logo light />
+              <Logo light full />
             </Link>
             <p className="mt-5 max-w-xs font-heading text-lg font-light leading-snug text-navy-20">
               {BRAND.tagline}

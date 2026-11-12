@@ -1,6 +1,6 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { HERO } from "../content";
+import { HERO, IMAGES } from "../content";
 import { EASE, useMouseParallax, scrollToTarget } from "./shared";
 
 function ShieldGraphic() {
@@ -15,7 +15,6 @@ function ShieldGraphic() {
         };
   return (
     <svg viewBox="0 0 320 360" fill="none" className="h-auto w-full max-w-[420px]" aria-hidden="true">
-      {/* shield outline */}
       <motion.path
         d="M160 18c34 23 71 34 118 39 0 103-34.7 183-118 236C76.7 240 42 160 42 57 89 52 126 41 160 18Z"
         stroke="#0B2545"
@@ -23,7 +22,6 @@ function ShieldGraphic() {
         strokeLinejoin="round"
         {...draw(0.3, 1.6)}
       />
-      {/* inner hairline echo */}
       <motion.path
         d="M160 44c27 18 56 27 93 31 0 81-27.3 144-93 186C94.3 219 67 156 67 75c37-4 66-13 93-31Z"
         stroke="#A1B1C8"
@@ -31,7 +29,6 @@ function ShieldGraphic() {
         strokeLinejoin="round"
         {...draw(0.7, 1.4)}
       />
-      {/* teal path line through the shield */}
       <motion.path
         d="M88 268 C 128 232, 176 176, 236 96"
         stroke="#0D9488"
@@ -45,7 +42,6 @@ function ShieldGraphic() {
             : { type: "spring", stiffness: 42, damping: 14, delay: 1.9 }
         }
       />
-      {/* arrowhead */}
       <motion.path
         d="M200 90 L 240 84 L 234 124"
         stroke="#0D9488"
@@ -56,7 +52,6 @@ function ShieldGraphic() {
         animate={{ pathLength: 1, opacity: 1 }}
         transition={reduceMotion ? {} : { duration: 0.45, delay: 2.55, ease: EASE }}
       />
-      {/* destination dot */}
       <motion.circle
         cx="236"
         cy="96"
@@ -80,7 +75,6 @@ export function Hero({ onBook }) {
       className="relative overflow-hidden bg-gradient-to-b from-white via-white to-steel pt-[72px]"
       data-testid="hero-section"
     >
-      {/* drifting dotted grid */}
       <div ref={parallaxRef} className="pointer-events-none absolute inset-0 will-change-transform">
         <div className="dot-grid absolute -inset-10" />
       </div>
@@ -102,7 +96,11 @@ export function Hero({ onBook }) {
             {HERO.titleWords.map((word, i) => {
               const isPath = word === HERO.highlightWord;
               return (
-                <span key={i} className="inline-block overflow-hidden pb-1 align-bottom">
+                <span
+                  key={i}
+                  className="inline-block overflow-hidden pb-1 align-bottom"
+                  style={{ marginRight: i < HERO.titleWords.length - 1 ? "0.24em" : 0 }}
+                >
                   <motion.span
                     className="inline-block"
                     initial={reduceMotion ? { opacity: 0 } : { y: "110%" }}
@@ -132,7 +130,6 @@ export function Hero({ onBook }) {
                     ) : (
                       word
                     )}
-                    {i < HERO.titleWords.length - 1 ? " " : ""}
                   </motion.span>
                 </span>
               );
@@ -185,10 +182,52 @@ export function Hero({ onBook }) {
           className="relative z-10 mx-auto w-full max-w-md lg:max-w-none"
         >
           <ShieldGraphic />
+
+          {/* floating photo card */}
+          <motion.div
+            initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 2.3, ease: EASE }}
+            className="absolute -bottom-8 -left-2 z-20 w-36 sm:-left-8 sm:w-52"
+          >
+            <motion.div
+              animate={reduceMotion ? {} : { y: [0, -8, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              className="overflow-hidden rounded-2xl border border-white/70 bg-white shadow-2xl shadow-navy/25"
+            >
+              <img
+                src={IMAGES.heroCard}
+                alt="Security consultant at a modern workstation"
+                className="h-24 w-full object-cover sm:h-32"
+                loading="lazy"
+              />
+              <div className="flex items-center gap-2 px-3 py-2.5">
+                <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-teal" />
+                <span className="text-[11px] font-medium tracking-wide text-navy">
+                  16+ years of expertise
+                </span>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* floating badge */}
+          <motion.div
+            initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 2.6, ease: EASE }}
+            className="absolute -right-1 top-4 z-20 sm:right-2"
+          >
+            <motion.div
+              animate={reduceMotion ? {} : { y: [0, 7, 0] }}
+              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              className="rounded-full border border-teal-40 bg-white/90 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-navy shadow-lg shadow-navy/10 backdrop-blur"
+            >
+              ISO 27001 Specialists
+            </motion.div>
+          </motion.div>
         </motion.div>
       </div>
 
-      {/* scroll cue */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
