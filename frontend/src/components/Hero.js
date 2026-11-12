@@ -3,62 +3,53 @@ import { ArrowRight } from "lucide-react";
 import { HERO, IMAGES } from "../content";
 import { EASE, useMouseParallax, scrollToTarget } from "./shared";
 
-// Shield redrawn to match the official SecurePath logo: peaked flat top,
-// angled shoulders, curved sides to a bottom point, and the bold teal arrow.
+// Hero shield traced from the official SecurePath mark (public/assets/shield-icon.png):
+// thick navy border, gently peaked top, straight sides curving to a point, and the
+// bold teal arrow entering from under the lower-left border. Coordinates use the
+// mark's own 678x805 pixel space so proportions match the logo exactly.
+// Path starts mid-way up the left side so the draw-on animation's seam sits on a
+// straight edge instead of leaving a notch at the peak.
+const SHIELD_PATH =
+  "M32 216 L32 92 L339 32 L646 92 L646 340 C646 540 520 680 339 770 C158 680 32 540 32 340 Z";
+
 function ShieldGraphic() {
   const reduceMotion = useReducedMotion();
-  const draw = (delay, duration) =>
-    reduceMotion
-      ? {}
-      : {
-          initial: { pathLength: 0, opacity: 0 },
-          animate: { pathLength: 1, opacity: 1 },
-          transition: { duration, delay, ease: EASE },
-        };
   return (
-    <svg viewBox="0 0 200 240" fill="none" className="h-auto w-full max-w-[420px]" aria-hidden="true">
-      {/* shield outline — official logo shape */}
+    <svg
+      viewBox="0 0 678 805"
+      fill="none"
+      className="h-auto w-full max-w-[400px]"
+      aria-hidden="true"
+      data-testid="hero-shield-graphic"
+    >
+      <defs>
+        <clipPath id="sp-shield-clip">
+          <path d={SHIELD_PATH} />
+        </clipPath>
+      </defs>
+      {/* white shield body */}
+      <path d={SHIELD_PATH} fill="#FFFFFF" />
+      {/* bold teal arrow, clipped to the shield so it tucks under the border */}
+      <g clipPath="url(#sp-shield-clip)">
+        <motion.polygon
+          points="70,640 325,327 248,272 500,188 462,460 398,388 140,708"
+          fill="#1AACA6"
+          strokeLinejoin="round"
+          style={{ transformOrigin: "120px 660px" }}
+          initial={reduceMotion ? false : { scale: 0.2, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={reduceMotion ? { duration: 0 } : { type: "spring", stiffness: 60, damping: 15, delay: 1.5 }}
+        />
+      </g>
+      {/* thick navy border, drawn on load */}
       <motion.path
-        d="M100 8 L184 36 C 184 126, 160 188, 100 230 C 40 188, 16 126, 16 36 Z"
-        stroke="#0B2545"
-        strokeWidth="3"
+        d={SHIELD_PATH}
+        stroke="#1B3855"
+        strokeWidth="60"
         strokeLinejoin="round"
-        {...draw(0.3, 1.6)}
-      />
-      {/* inner hairline echo */}
-      <motion.path
-        d="M100 26 L168 49 C 168 122, 148 174, 100 210 C 52 174, 32 122, 32 49 Z"
-        stroke="#A1B1C8"
-        strokeWidth="1.2"
-        strokeLinejoin="round"
-        {...draw(0.7, 1.4)}
-      />
-      {/* bold teal arrow shaft */}
-      <motion.path
-        d="M60 172 L 130 80"
-        stroke="#0D9488"
-        strokeWidth="11"
-        strokeLinecap="round"
-        initial={reduceMotion ? {} : { pathLength: 0 }}
-        animate={{ pathLength: 1 }}
-        transition={
-          reduceMotion
-            ? {}
-            : { type: "spring", stiffness: 42, damping: 14, delay: 1.9 }
-        }
-      />
-      {/* filled arrowhead, like the official mark */}
-      <motion.polygon
-        points="144,60 110,66 142,96"
-        fill="#0D9488"
-        style={{ transformOrigin: "128px 78px" }}
-        initial={reduceMotion ? {} : { scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={
-          reduceMotion
-            ? {}
-            : { type: "spring", stiffness: 200, damping: 16, delay: 2.45 }
-        }
+        initial={reduceMotion ? false : { pathLength: 0, opacity: 0 }}
+        animate={{ pathLength: 1, opacity: 1 }}
+        transition={reduceMotion ? { duration: 0 } : { duration: 1.6, delay: 0.3, ease: EASE }}
       />
     </svg>
   );

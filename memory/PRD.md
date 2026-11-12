@@ -42,6 +42,14 @@ Build a FRONT-END ONLY marketing website (no backend, no CMS, no real form submi
 - Booking modal: validation (5 errors on empty submit), successful fill → success state → close.
 - Route navigation: /services, /about, /privacy all render; mobile menu opens/closes cleanly.
 
+## Update 2 (Nov 12 2026) — dark navbar, typography, dark sections, founder on home
+- Navbar is now always dark navy (blur + hairline on scroll), white links, white-variant shield logo.
+- Typography bumped from Outfit 300 to 400/500 across all headings — no longer wispy.
+- Hero shield redrawn by the verifier traced directly from the official logo file (viewBox 678x805 coords, navy #1B3855, teal #1AACA6, bold filled arrow clipped to shield, outline draw starts partway up the left side to avoid a peak notch — keep these constraints).
+- Home page dark/light rhythm: Services bento is now dark navy (navy-mid cards, teal-light icons); Founder section added to Home as a dark section between Audience and Why Us (shared components/Founder.js with dark prop; About keeps the light steel version).
+- Founder section: circular photo in dashed teal ring, name card, full bio, 11 credential chips — on both Home and About.
+- Verified by testing subagent at 375/1366/1920: dark navbar top+scrolled, shield matches official logo, dark sections alternate correctly, founder section on both pages, no console errors, no layout breakage.
+
 ## Backlog
 - P0: none (all requested features built).
 - P1: real form delivery (Resend/managed email) so enquiries reach info@securepathcyber.ie; LinkedIn URL confirmation (placeholder company slug used).

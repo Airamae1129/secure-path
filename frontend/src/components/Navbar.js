@@ -130,7 +130,7 @@ export function Navbar({ onBook }) {
                     data-testid={`mobile-nav-link-${link.label.toLowerCase().replace(/[^a-z]+/g, "-")}`}
                     className="group flex items-center justify-between border-b border-white/10 py-5"
                   >
-                    <span className="font-heading text-3xl font-light text-white transition-colors group-hover:text-teal-light">
+                    <span className="font-heading text-3xl font-medium text-white transition-colors group-hover:text-teal-light">
                       {link.label}
                     </span>
                     <ArrowUpRight className="h-6 w-6 text-teal-light opacity-0 transition-all duration-400 group-hover:opacity-100" strokeWidth={1.5} />
